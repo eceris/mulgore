@@ -1,0 +1,9 @@
+import { Http } from '@angular/http';
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class AlbumService {
+    constructor(private http: Http) {
+        
+    }
+}
