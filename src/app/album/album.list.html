@@ -1,5 +1,7 @@
 <div class="album">
 
-    <h1>TTTTTTTTTTTTT</h1>
+    <div *ngFor="let article of articles">
+        <album-thumbnail [article]="article"></album-thumbnail>
+    </div>
 
 </div>
