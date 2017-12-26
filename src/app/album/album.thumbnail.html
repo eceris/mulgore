@@ -4,4 +4,8 @@
         <img src="/api/drive/thumbnail{{article.path}}" />
     </div>
 
+    <div *ngIf="article.type == 'DIRECTORY'">
+        <img src="../../assets/images/directory.png" />
+    </div>
+
 </div>

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Http } from '@angular/http';
+
 import { AlbumService } from './album.service';
 import { AlbumServiceMock } from './album.service.mock';
 
@@ -7,7 +9,13 @@ import { AlbumServiceMock } from './album.service.mock';
     selector: 'album-list',
     templateUrl: './album.list.html',
     styleUrls: [ './album.css' ],
-    providers: [ { provide: AlbumService, useClass: AlbumServiceMock } ]
+    providers: [ {
+        provide: AlbumService,
+        useFactory(http: Http) {
+            return isDevMode()? new AlbumServiceMock(http) : new AlbumService(http);
+        },
+        deps: [ Http ]
+    } ]
 })
 export class AlbumList {
     private path: string;
