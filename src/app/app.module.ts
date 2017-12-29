@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './routing.module';
 
 import { Mulgore } from './mulgore';
@@ -12,7 +12,7 @@ import { AlbumThumbnail } from './album/album.thumbnail';
 
 @NgModule({
   imports: [
-    BrowserModule, AppRoutingModule, HttpModule
+    BrowserModule, AppRoutingModule, HttpClientModule
   ],
   declarations: [
     Mulgore, Top, Bottom, Home, AlbumList, AlbumThumbnail
