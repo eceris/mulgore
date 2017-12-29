@@ -2,7 +2,7 @@ import { AlbumService } from './album.service';
 
 export class AlbumServiceMock extends AlbumService {
 
-    getRootDirectoryItems() {
+    getRootDirectoryItems(): any[] {
         return [
             {"path":"/SAM_5537.jpg","type":"IMAGE"},
             {"path":"/test","type":"DIRECTORY"},
@@ -10,7 +10,7 @@ export class AlbumServiceMock extends AlbumService {
         ];
     }
 
-    getDirectoryItems(path: string) {
+    getDirectoryItems(path: string): any[] {
         return [
             {"path":"/test/SAM_5318.jpg","type":"IMAGE"},
             {"path":"/test/SAM_5526.JPG","type":"IMAGE"},

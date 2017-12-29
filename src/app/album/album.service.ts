@@ -1,18 +1,24 @@
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AlbumService {
-    constructor(private http: Http) {}
+    constructor(private http: HttpClient) {}
 
     getRootDirectoryItems(): any[] {
-        //return this.http.get('/api/drive');
-        return [];
+        let result: any[] = [];
+        this.http.get<any[]>('/api/drive').subscribe(data => {
+            result = data;
+        });
+        return result;
     }
 
     getDirectoryItems(path: string): any[] {
-        //return this.http.get('/api/drive/directory/' + path);
-        return [];
+        let result: any[] = [];
+        this.http.get<any[]>('/api/drive').subscribe(data => {
+            result = data;
+        });
+        return result;
     }
 
 }
