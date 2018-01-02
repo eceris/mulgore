@@ -21,12 +21,15 @@ export class AlbumList {
     private path: string;
     private articles: any[];
     
-    constructor(route: ActivatedRoute, albumService: AlbumService) {
+    constructor(private route: ActivatedRoute, private http: HttpClient) {
         this.path = route.snapshot.params['path'];
         if(this.path) {
-            this.articles = albumService.getDirectoryItems(this.path);
+            //
         } else {
-            this.articles = albumService.getRootDirectoryItems();
+            this.http.get<any[]>('/api/drive').subscribe(data => {
+                console.log("/api/drive - " + data);
+                this.articles = data;
+            });
         }
     }
 
