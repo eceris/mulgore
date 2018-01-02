@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./top.css']
 })
 export class Top {
-
+    private moveLogin() {
+        window.location.href = '/api/auth/login';
+    }
 }
