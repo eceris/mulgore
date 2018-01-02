@@ -1,6 +1,7 @@
 import { Component, isDevMode } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 import { AlbumService } from './album.service';
 import { AlbumServiceMock } from './album.service.mock';
@@ -21,16 +22,16 @@ export class AlbumList {
     private path: string;
     private articles: any[];
     
-    constructor(private route: ActivatedRoute, private http: HttpClient) {
+    constructor(route: ActivatedRoute, albumService: AlbumService) {
         this.path = route.snapshot.params['path'];
         if(this.path) {
-            //
+            albumService.getDirectoryItems(this.path).subscribe(data => {
+                this.articles = data;
+            });
         } else {
-            this.http.get<any[]>('/api/drive').subscribe(data => {
-                console.log("/api/drive - " + data);
+            albumService.getRootDirectoryItems().subscribe(data => {
                 this.articles = data;
             });
         }
     }
-
 }
