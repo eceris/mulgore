@@ -15,7 +15,7 @@ export class AlbumService {
 
     getDirectoryItems(path: string): any[] {
         let result: any[] = [];
-        this.http.get<any[]>('/api/drive').subscribe(data => {
+        this.http.get<any[]>('/api/drive' + path).subscribe(data => {
             result = data;
         });
         return result;
