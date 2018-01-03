@@ -11,11 +11,11 @@ export class AlbumService {
     }
 
     getDirectoryItems(path: string): Observable<any[]> {
-        return this.http.get<any[]>('/api/drive/directory' + path);
+        return this.http.get<any[]>('/api/drive/directory/' + path);
     }
 
     getAlbumDetail(path: string): Observable<any> {
-        return this.http.get<any>('/api/drive/file' + path);
+        return this.http.get<any>('/api/drive/file/' + path);
     }
 
 }
