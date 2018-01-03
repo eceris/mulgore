@@ -14,7 +14,9 @@ export class AlbumDetail {
     private article: any;
     
     constructor(route: ActivatedRoute, albumService: AlbumService) {
-        this.path = route.snapshot.params['path'];
+        route.queryParams.subscribe(params => {
+            this.path = params.path;
+        });
         albumService.getAlbumDetail(this.path).subscribe(data => {
             this.article = data;
         });

@@ -12,10 +12,10 @@ export class AlbumThumbnail {
     constructor(private router: Router) {}
 
     private moveDetail(path: string) {
-        this.router.navigateByUrl('album/detail' + path);
+        this.router.navigate(['album/detail'], { queryParams: { 'path': path } });
     }
     
     private moveFolder(path: string) {
-        this.router.navigateByUrl('album/folder' + path);
+        this.router.navigate(['album/folder'], { queryParams: { 'path': path } });
     }
 }

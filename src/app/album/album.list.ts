@@ -14,7 +14,9 @@ export class AlbumList {
     private articles: any[];
     
     constructor(route: ActivatedRoute, albumService: AlbumService) {
-        this.path = route.snapshot.params['path'];
+        route.queryParams.subscribe(params => {
+            this.path = params.path;
+        });
         if(this.path) {
             albumService.getDirectoryItems(this.path).subscribe(data => {
                 this.articles = data;
