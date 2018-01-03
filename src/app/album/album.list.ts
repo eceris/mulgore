@@ -1,22 +1,13 @@
-import { Component, isDevMode } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { AlbumService } from './album.service';
-import { AlbumServiceMock } from './album.service.mock';
 
 @Component({
     selector: 'album-list',
     templateUrl: './album.list.html',
-    styleUrls: [ './album.css' ],
-    providers: [ {
-        provide: AlbumService,
-        useFactory(http: HttpClient) {
-            return isDevMode()? new AlbumServiceMock(http) : new AlbumService(http);
-        },
-        deps: [ HttpClient ]
-    } ]
+    styleUrls: [ './album.css' ]
 })
 export class AlbumList {
     private path: string;

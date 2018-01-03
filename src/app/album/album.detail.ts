@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+
+import { AlbumService } from './album.service';
 
 @Component({
     selector: 'album-detail',
@@ -6,5 +10,13 @@ import { Component } from '@angular/core';
     styleUrls: [ './album.css' ]
 })
 export class AlbumDetail {
-
+    private path: string;
+    private article: any;
+    
+    constructor(route: ActivatedRoute, albumService: AlbumService) {
+        this.path = route.snapshot.params['path'];
+        albumService.getAlbumDetail(this.path).subscribe(data => {
+            this.article = data;
+        });
+    }
 }

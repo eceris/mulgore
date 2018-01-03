@@ -1,11 +1,15 @@
 <div class="thumbnail">
 
     <div *ngIf="article.type == 'IMAGE'">
-        <img src="/api/drive/thumbnail{{article.path}}" />
+        <a [routerLink]="['/', 'album', 'detail', article.path]">
+            <img src="/api/drive/thumbnail{{article.path}}" />
+        </a>
     </div>
 
     <div *ngIf="article.type == 'DIRECTORY'">
-        <img src="../../assets/images/directory.png" />
+        <a [routerLink]="['/', 'album', 'folder', article.path]">
+            <img src="../../assets/images/directory.png" />
+        </a>
     </div>
 
 </div>
