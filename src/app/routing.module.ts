@@ -7,7 +7,9 @@ import { AlbumList } from './album/album.list';
 const routes: Routes = [
     { path: '', redirectTo: '/', pathMatch: 'full' },
     { path: '', component: Home },
-    { path: 'album',  component: AlbumList }
+    { path: 'album', component: AlbumList },
+    { path: 'album/folder/:path', component: AlbumList },
+    { path: 'album/image', component: AlbumList }
 ];
 
 @NgModule({
