@@ -2,10 +2,14 @@
 
     <div *ngIf="article.type == 'IMAGE'">
         <img (click)="moveDetail(article.path)" src="/api/drive/thumbnail{{article.path}}" />
+        <br/>
+        <div class="name">{{article.name}}</div>
     </div>
 
     <div *ngIf="article.type == 'DIRECTORY'">
         <img (click)="moveFolder(article.path)" src="../../assets/images/directory.png" />
+        <br/>
+        <div class="name">{{article.name}}</div>
     </div>
 
 </div>
