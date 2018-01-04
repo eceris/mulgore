@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -11,11 +11,13 @@ export class AlbumService {
     }
 
     getDirectoryItems(path: string): Observable<any[]> {
-        return this.http.get<any[]>('/api/drive/directory' + path);
+        let params = new HttpParams().set('path', path);
+        return this.http.get<any[]>('/api/drive/directory', { params: params });
     }
 
     getAlbumDetail(path: string): Observable<any> {
-        return this.http.get<any>('/api/drive/file' + path);
+        let params = new HttpParams().set('path', path);
+        return this.http.get<any>('/api/drive/file', { params: params });
     }
 
 }
