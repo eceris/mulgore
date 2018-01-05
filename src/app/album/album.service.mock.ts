@@ -23,7 +23,8 @@ export class AlbumServiceMock extends AlbumService {
         return Observable.of([
             {"path":"/test/SAM_5318.jpg","type":"IMAGE","name":"SAM_5318.jpg"},
             {"path":"/test/SAM_5526.JPG","type":"IMAGE","name":"SAM_5526.jpg"},
-            {"path":"/test/SAM_5533.MP4","type":"BINARY","name":"SAM_5533.MP4"}
+            {"path":"/test/SAM_5533.MP4","type":"BINARY","name":"SAM_5533.MP4"},
+            {"path":"/test/20180105_고라파덕","type":"DIRECTORY","name":"20180105_고라파덕"}
         ]);
     }
 

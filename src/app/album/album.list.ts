@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
@@ -26,5 +26,9 @@ export class AlbumList {
                 this.articles = data;
             });
         }
+    }
+
+    ngOnInit() {
+        alert('tttttt');
     }
 }
