@@ -1,4 +1,4 @@
 <header>
     <a routerLink="/"><img src="../../assets/images/logo.png" lat="Anajo" /></a>
-    <button (click)="moveLogin()">로그인</button>
+    <button *ngIf="!isLoggedIn()" (click)="moveLogin()">로그인</button>
 </header>

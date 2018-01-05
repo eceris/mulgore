@@ -1,10 +1,10 @@
 <div class="detail">
 
-    <div *ngIf="article.type == 'IMAGE'">
+    <div *ngIf="article?.type == 'IMAGE'">
         <img src="/api/drive/image{{article.path}}" />
     </div>
 
-    <div *ngIf="article.type == 'VIDEO'">
+    <div *ngIf="article?.type == 'VIDEO'">
         <video controls>
             <source src="/api/drive/video{{article.path}}" type="video/mp4">
             <source src="/api/drive/video{{article.path}}" type="video/ogg">
