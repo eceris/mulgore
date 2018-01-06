@@ -11,9 +11,9 @@ export class AlbumServiceMock extends AlbumService {
             {"path":"/^^","type":"DIRECTORY","name":"^^"},{"path":"/20170101_긴이름~~~","type":"DIRECTORY","name":"20170101_긴이름~~~"},
             {"path":"/20170306_여름휴가","type":"DIRECTORY","name":"20170306_여름휴가"},{"path":"/20171215_재롱잔치","type":"DIRECTORY","name":"20171215_재롱잔치"},
             {"path":"/휴대폰백업","type":"DIRECTORY","name":"휴대폰백업"},{"path":"/정렬","type":"DIRECTORY","name":"정렬"},
-            {"path":"/test","type":"DIRECTORY","name":"test"},{"path":"/ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ","type":"DIRECTORY","name":"ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ"},
+            {"path":"/test","type":"DIRECTORY","name":"test"},{"path":"/ㅇㅇㅇㅇㅇㅇㅇㅇ","type":"DIRECTORY","name":"ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ"},
             {"path":"/라라라라라","type":"DIRECTORY","name":"라라라라라"},{"path":"/111","type":"DIRECTORY","name":"111"},
-            {"path":"/^^","type":"DIRECTORY","name":"^^"},{"path":"/20170101_긴이름~~~","type":"DIRECTORY","name":"20170101_긴이름~~~"},
+            {"path":"/^^","type":"DIRECTORY","name":"^^"},{"path":"/20170101_긴이름~~~~","type":"DIRECTORY","name":"20170101_긴이름~~~긴이름~~~~긴이름~~~~"},
             {"path":"/20170306_여름휴가","type":"DIRECTORY","name":"20170306_여름휴가"},{"path":"/20171215_재롱잔치","type":"DIRECTORY","name":"20171215_재롱잔치"},
             {"path":"/휴대폰백업","type":"DIRECTORY","name":"휴대폰백업"},{"path":"/정렬","type":"DIRECTORY","name":"정렬"}
         ]);
