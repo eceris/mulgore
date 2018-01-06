@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,13 +9,10 @@ import { Router } from '@angular/router';
 export class AlbumThumbnail {
     @Input('article') article: any;
 
-    constructor(private router: Router) {}
+    @Output() clickArticle: EventEmitter<any> = new EventEmitter();
 
-    private moveDetail(path: string) {
-        this.router.navigate(['album/detail'], { queryParams: { 'path': path } });
+    private move() {
+        this.clickArticle.emit(this.article);
     }
     
-    private moveFolder(path: string) {
-        this.router.navigate(['album/folder'], { queryParams: { 'path': path } });
-    }
 }
