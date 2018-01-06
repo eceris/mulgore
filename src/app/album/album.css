@@ -1,6 +1,6 @@
 .thumbnail { float: left; margin: 1%; cursor: pointer; }
 @media (max-width: 640px) { .thumbnail img { width: 100px; height: 90px; } }
 @media (max-width: 640px) { .thumbnail .name { width: 100px; height: 36px; text-align: center; font-size: 0.8em; overflow:hidden; word-break:break-all; } }
-@media (min-width: 640px) { .thumbnail img { width: 130px; height: 120px; } }
+@media (min-width: 640px) { .thumbnail img { width: 140px; height: 120px; } }
 @media (min-width: 640px) { .thumbnail .name { width: 140px; height: 36px; text-align: center; font-size: 0.8em; overflow:hidden; word-break:break-all; } }
 .detail img { width: 100%; max-width: fit-content; }
