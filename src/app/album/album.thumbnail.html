@@ -12,4 +12,10 @@
         <div class="name">{{article.name}}</div>
     </div>
 
+    <div *ngIf="article.type == 'VIDEO'">
+        <img (click)="move()" src="../../assets/images/video.png" />
+        <br/>
+        <div class="name">{{article.name}}</div>
+    </div>
+
 </div>
