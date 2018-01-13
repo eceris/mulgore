@@ -2,7 +2,7 @@
 
     <div class="image" *ngIf="article?.type == 'IMAGE'">
         <p class="description">
-            {{article?.metadata.date}} |
+            {{article?.metadata.date | date:'yyyy-MM-dd a HH:mm Z'}} |
             {{article?.metadata.size / 1024 | number:'1.0-0'}} Kbyte |
             {{article?.metadata.width | number}} x {{article?.metadata.height | number}} pixel |
             iso {{article?.metadata.iso | number}} |

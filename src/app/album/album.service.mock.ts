@@ -34,7 +34,7 @@ export class AlbumServiceMock extends AlbumService {
             "type": "IMAGE",
             "name": "SAM_5318.jpg",
             "metadata": {
-                "date": "2017:10:04 17:49:02",
+                "date": "1507139342000",
                 "iso": 100,
                 "size": 2845938,
                 "width": 5536,
