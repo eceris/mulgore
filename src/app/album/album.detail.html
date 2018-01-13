@@ -1,6 +1,13 @@
 <div class="detail">
 
-    <div *ngIf="article?.type == 'IMAGE'">
+    <div class="image" *ngIf="article?.type == 'IMAGE'">
+        <p class="description">
+            {{article?.metadata.date}} |
+            {{article?.metadata.size / 1024 | number:'1.0-0'}}byte |
+            {{article?.metadata.width | number}} x {{article?.metadata.height | number}} pixel |
+            ISO {{article?.metadata.iso | number}} |
+            F {{article?.metadata.fNumber}}
+        </p>
         <img src="/api/drive/image{{article.path}}" />
     </div>
 

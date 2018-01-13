@@ -29,7 +29,19 @@ export class AlbumServiceMock extends AlbumService {
     }
 
     getAlbumDetail(path: string): Observable<any> {
-        return Observable.of({"path":"/test/SAM_5318.jpg","type":"IMAGE","name":"SAM_5318.jpg"});
+        return Observable.of({
+            "path": "/test/SAM_5318.jpg",
+            "type": "IMAGE",
+            "name": "SAM_5318.jpg",
+            "metadata": {
+                "date": "2017:10:04 17:49:02",
+                "iso": 100,
+                "size": 2845938,
+                "width": 5536,
+                "height": 3696,
+                "fNumber": "f/2.0"
+            }
+        });
     }
 
 }
