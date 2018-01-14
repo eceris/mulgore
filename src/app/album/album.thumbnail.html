@@ -18,4 +18,10 @@
         <div class="name">{{article.name}}</div>
     </div>
 
+    <div *ngIf="article.type == 'BINARY'">
+        <img src="../../assets/images/binary.png" />
+        <br/>
+        <div class="name">{{article.name}}</div>
+    </div>
+
 </div>
