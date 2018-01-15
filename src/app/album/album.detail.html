@@ -2,11 +2,17 @@
 
     <div class="image" *ngIf="article?.type == 'IMAGE'">
         <p class="description">
-            {{article?.metadata.date | date:'yyyy-MM-dd a HH:mm Z'}} |
-            {{article?.metadata.size / 1024 | number:'1.0-0'}} Kbyte |
-            {{article?.metadata.width | number}} x {{article?.metadata.height | number}} pixel |
-            iso {{article?.metadata.iso | number}} |
-            {{article?.metadata.fNumber}}
+            <span *ngIf="article?.metadata.date">{{article?.metadata.date | date:'yyyy-MM-dd HH:mm z'}}</span>
+            <span *ngIf="article?.metadata.iso">| iso-{{article?.metadata.iso | number}}</span>
+            <span *ngIf="article?.metadata.fNumber">| {{article?.metadata.fNumber}}</span>
+            <span *ngIf="article?.metadata.shutterSpeed">| {{article?.metadata.shutterSpeed}}</span>
+            <span *ngIf="article?.metadata.width">| {{article?.metadata.width | number}} x {{article?.metadata.height | number}} pixel</span>
+            <span *ngIf="article?.metadata.size">| {{article?.metadata.size / 1024 | number:'1.0-0'}} Kbyte</span>
+            <br/>
+            <span *ngIf="article?.metadata.whiteBalanceMode">{{article?.metadata.whiteBalanceMode}}</span>
+            <span *ngIf="article?.metadata.flash">| {{article?.metadata.flash}}</span>
+            <span *ngIf="article?.metadata.cameraMake">| {{article?.metadata.cameraMake}}</span>
+            <span *ngIf="article?.metadata.cameraModel">| {{article?.metadata.cameraModel}}</span>
         </p>
         <img src="/api/drive/image{{article.path}}" />
     </div>

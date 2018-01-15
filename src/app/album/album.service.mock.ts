@@ -30,18 +30,23 @@ export class AlbumServiceMock extends AlbumService {
 
     getAlbumDetail(path: string): Observable<any> {
         return Observable.of({
-            "path": "/test/SAM_5318.jpg",
+            "path": "/test.jpg",
             "type": "IMAGE",
-            "name": "SAM_5318.jpg",
+            "name": "test.jpg",
             "metadata": {
-                "date": "1507139342000",
-                "iso": 100,
-                "size": 2845938,
-                "width": 5536,
-                "height": 3696,
-                "fNumber": "f/2.0"
-            }
-        });
+                "date": 1500375013000,
+                "size": 491375,
+                "iso": 40,
+                "fNumber": "f/1.9",
+                "width": 1152,
+                "cameraModel": "SM-A520S",
+                "whiteBalanceMode": "Auto white balance",
+                "cameraMake": "samsung",
+                "height": 864,
+                "shutterSpeed": "1/179 sec",
+                "flash": "Flash did not fire"
+                }
+            });
     }
 
 }
