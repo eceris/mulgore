@@ -10,6 +10,7 @@ const routes: Routes = [
     { path: '', component: Home },
     { path: 'album', component: AlbumList },
     { path: 'album/folder', component: AlbumList },
+    { path: 'album/folder/nav', component: AlbumList },
     { path: 'album/detail', component: AlbumDetail }
 ];
 

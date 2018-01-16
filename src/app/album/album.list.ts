@@ -11,9 +11,11 @@ import { AlbumService } from './album.service';
 })
 export class AlbumList {
     private articles: any[];
+    private currentRoutePath: string;
     
     constructor(private router: Router, route: ActivatedRoute, private albumService: AlbumService) {
         let path;
+        this.currentRoutePath = router.url;
         route.queryParams.subscribe(params => {
             path = params.path;
         });
@@ -34,8 +36,11 @@ export class AlbumList {
 
     private moveArticle(article: any) {
         if(article.type == 'DIRECTORY') {
-            this.router.navigate(['album/folder'], { queryParams: { 'path': article.path } });
-            this.getArticles(article.path);
+            if(this.currentRoutePath.indexOf("/album/folder/nav") > -1) {
+                this.router.navigate(['album/folder'], { queryParams: { 'path': article.path } });
+            } else {
+                this.router.navigate(['album/folder/nav'], { queryParams: { 'path': article.path } });
+            }
         } else {
             this.router.navigate(['album/detail'], { queryParams: { 'path': article.path } });
         }
