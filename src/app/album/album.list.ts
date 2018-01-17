@@ -12,7 +12,6 @@ import { AlbumService } from './album.service';
 export class AlbumList {
     private articles: any[];
     private currentRoutePath: string;
-    private rep
     
     constructor(private router: Router, route: ActivatedRoute, private albumService: AlbumService) {
         let path;
