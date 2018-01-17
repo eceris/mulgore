@@ -12,6 +12,7 @@ import { AlbumService } from './album.service';
 export class AlbumList {
     private articles: any[];
     private currentRoutePath: string;
+    private rep
     
     constructor(private router: Router, route: ActivatedRoute, private albumService: AlbumService) {
         let path;
@@ -44,6 +45,10 @@ export class AlbumList {
         } else {
             this.router.navigate(['album/detail'], { queryParams: { 'path': article.path } });
         }
+    }
+
+    private previewAll() {
+        this.articles.forEach(article => article.preview = true);
     }
 
 }

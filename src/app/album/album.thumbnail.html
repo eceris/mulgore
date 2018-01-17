@@ -1,24 +1,25 @@
 <div class="thumbnail">
 
-    <div *ngIf="article.type == 'IMAGE'">
-        <img (click)="move()" src="/api/drive/thumbnail{{article.path}}" />
+    <div *ngIf="article?.type == 'IMAGE'">
+        <img *ngIf="!article?.preview" (mouseenter)="preview()" src="../../assets/images/image1.png" />
+        <img *ngIf="article?.preview" (click)="move()" src="/api/drive/thumbnail{{article.path}}" />
         <br/>
         <div class="name">{{article.name}}</div>
     </div>
 
-    <div *ngIf="article.type == 'DIRECTORY'">
+    <div *ngIf="article?.type == 'DIRECTORY'">
         <img (click)="move()" src="../../assets/images/directory.png" />
         <br/>
         <div class="name">{{article.name}}</div>
     </div>
 
-    <div *ngIf="article.type == 'VIDEO'">
+    <div *ngIf="article?.type == 'VIDEO'">
         <img (click)="move()" src="../../assets/images/video.png" />
         <br/>
         <div class="name">{{article.name}}</div>
     </div>
 
-    <div *ngIf="article.type == 'BINARY'">
+    <div *ngIf="article?.type == 'BINARY'">
         <img src="../../assets/images/binary.png" />
         <br/>
         <div class="name">{{article.name}}</div>

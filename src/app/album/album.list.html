@@ -1,5 +1,7 @@
 <div class="album">
 
+    <div><img (click)="previewAll()" class="imgButton" src="../../assets/images/preview.png"></div>
+
     <div *ngFor="let article of articles">
         <album-thumbnail [article]="article" (clickArticle)="moveArticle($event)"></album-thumbnail>
     </div>

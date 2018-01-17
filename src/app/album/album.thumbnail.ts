@@ -8,11 +8,16 @@ import { Router } from '@angular/router';
 })
 export class AlbumThumbnail {
     @Input('article') article: any;
-
     @Output() clickArticle: EventEmitter<any> = new EventEmitter();
 
     private move() {
         this.clickArticle.emit(this.article);
+    }
+
+    private preview() {
+        if(!this.article.preview) {
+            this.article.preview = true;
+        } 
     }
     
 }
