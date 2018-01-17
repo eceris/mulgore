@@ -2,7 +2,7 @@
 
     <div *ngIf="article?.type == 'IMAGE'">
         <img *ngIf="!article?.preview" (mouseenter)="preview()" src="../../assets/images/image1.png" />
-        <img *ngIf="article?.preview" (click)="move()" src="/api/drive/thumbnail{{article.path}}" />
+        <img *ngIf="article?.preview" (click)="move()" class="preview" src="/api/drive/thumbnail{{article.path}}" />
         <br/>
         <div class="name">{{article.name}}</div>
     </div>
