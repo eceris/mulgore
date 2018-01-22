@@ -35,32 +35,4 @@ export class NoteList {
     private write() {
         this.router.navigate(['note/write']);
     }
-
-    // private getArticles(path: string) {
-    //     if (path) {
-    //         this.noteService.getDirectoryItems(path).subscribe(data => {
-    //             this.notes = data;
-    //         });
-    //     } else {
-    //         this.noteService.getRootDirectoryItems().subscribe(data => {
-    //             this.notes = data;
-    //         });
-    //     }
-    // }
-    //
-    // private moveArticle(article: any) {
-    //     if (article.type === 'DIRECTORY') {
-    //         if (this.currentRoutePath.indexOf('/album/folder/nav') > -1) {
-    //             this.router.navigate(['album/folder'], { queryParams: { 'path': article.path } });
-    //         } else {
-    //             this.router.navigate(['album/folder/nav'], { queryParams: { 'path': article.path } });
-    //         }
-    //     } else {
-    //         this.router.navigate(['album/detail'], { queryParams: { 'path': article.path } });
-    //     }
-    // }
-    //
-    // private previewAll() {
-    //     this.notes.forEach(article => article.preview = true);
-    // }
 }
