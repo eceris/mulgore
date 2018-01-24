@@ -15,8 +15,8 @@ import {NoteService} from './note.service';
     `
 })
 export class NoteList {
-    private notes: any[];
-    private currentRoutePath: string;
+    notes: any[];
+    currentRoutePath: string;
 
     constructor(private router: Router, route: ActivatedRoute, private noteService: NoteService) {
         let path;
@@ -27,12 +27,12 @@ export class NoteList {
         this.getNotes();
     }
 
-    private getNotes() {
+    getNotes() {
         this.noteService.getBundle().subscribe(data => {
             this.notes = data;
         });
     }
-    private write() {
+    write() {
         this.router.navigate(['note/write']);
     }
 }
