@@ -10,8 +10,8 @@ import { AlbumService } from './album.service';
     styleUrls: [ './album.css' ]
 })
 export class AlbumList {
-    private articles: any[];
-    private currentRoutePath: string;
+    articles: any[];
+    currentRoutePath: string;
     
     constructor(private router: Router, route: ActivatedRoute, private albumService: AlbumService) {
         let path;
@@ -22,7 +22,7 @@ export class AlbumList {
         this.getArticles(path);
     }
 
-    private getArticles(path: string) {
+    getArticles(path: string) {
         if(path) {
             this.albumService.getDirectoryItems(path).subscribe(data => {
                 this.articles = data;
@@ -34,7 +34,7 @@ export class AlbumList {
         }
     }
 
-    private moveArticle(article: any) {
+    moveArticle(article: any) {
         if(article.type == 'DIRECTORY') {
             if(this.currentRoutePath.indexOf("/album/folder/nav") > -1) {
                 this.router.navigate(['album/folder'], { queryParams: { 'path': article.path } });
@@ -46,7 +46,7 @@ export class AlbumList {
         }
     }
 
-    private previewAll() {
+    previewAll() {
         this.articles.forEach(article => article.preview = true);
     }
 

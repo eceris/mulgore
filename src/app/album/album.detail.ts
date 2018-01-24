@@ -10,8 +10,8 @@ import { AlbumService } from './album.service';
     styleUrls: [ './album.css' ]
 })
 export class AlbumDetail {
-    private path: string;
-    private article: any;
+    path: string;
+    article: any;
     
     constructor(route: ActivatedRoute, albumService: AlbumService) {
         route.queryParams.subscribe(params => {

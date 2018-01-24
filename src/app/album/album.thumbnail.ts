@@ -10,11 +10,11 @@ export class AlbumThumbnail {
     @Input('article') article: any;
     @Output() clickArticle: EventEmitter<any> = new EventEmitter();
 
-    private move() {
+    move() {
         this.clickArticle.emit(this.article);
     }
 
-    private preview() {
+    preview() {
         if(!this.article.preview) {
             this.article.preview = true;
         } 

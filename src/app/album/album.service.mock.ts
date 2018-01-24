@@ -7,7 +7,7 @@ export class AlbumServiceMock extends AlbumService {
         return Observable.of([
             {"path":"/SAM_5537.jpg","type":"IMAGE","name":"SAM_5537.jpg"},
             {"path":"/test","type":"DIRECTORY","name":"test"},{"path":"/video","type":"DIRECTORY","name":"video"},
-            {"path":"/라라라라라","type":"DIRECTORY","name":"라라라라라"},{"path":"/111","type":"DIRECTORY","name":"111"},
+            {"path":"/라라라라123라","type":"DIRECTORY","name":"라라라1111라라"},{"path":"/111","type":"DIRECTORY","name":"111"},
             {"path":"/^^","type":"DIRECTORY","name":"^^"},{"path":"/20170101_긴이름~~~","type":"DIRECTORY","name":"20170101_긴이름~~~"},
             {"path":"/20170306_여름휴가","type":"DIRECTORY","name":"20170306_여름휴가"},{"path":"/20171215_재롱잔치","type":"DIRECTORY","name":"20171215_재롱잔치"},
             {"path":"/휴대폰백업","type":"DIRECTORY","name":"휴대폰백업"},{"path":"/정렬","type":"DIRECTORY","name":"정렬"},

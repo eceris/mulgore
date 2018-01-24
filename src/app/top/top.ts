@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
 })
 export class Top {
 
-    private moveLogin() {
+    moveLogin() {
         window.location.href = '/api/auth/login';
     }
 
-    private isLoggedIn() {
+    isLoggedIn() {
         let isLoggedIn = false;
         let cookies = document.cookie.split(';');
         cookies.forEach(cookie => {
