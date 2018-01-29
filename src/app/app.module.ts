@@ -13,14 +13,14 @@ import {AlbumThumbnail} from './album/album.thumbnail';
 import {AlbumDetail} from './album/album.detail';
 import {AlbumService} from './album/album.service';
 import {AlbumServiceMock} from './album/album.service.mock';
-import {NoteList} from './note/note.list.component';
-import {NoteDetail} from './note/note.detail.component';
+import {NoteListComponent} from './note/note.list.component';
+import {NoteDetailComponent} from './note/note.detail.component';
 import {NoteService} from './note/note.service';
 import {NoteServiceMock} from './note/note.service.mock';
 
 @NgModule({
   declarations: [
-    AppComponent, Top, Bottom, Home, AlbumList, AlbumThumbnail, AlbumDetail, NoteList, NoteDetail
+    AppComponent, Top, Bottom, Home, AlbumList, AlbumThumbnail, AlbumDetail, NoteListComponent, NoteDetailComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule

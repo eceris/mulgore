@@ -7,21 +7,24 @@ import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output} from '
   template: `
     <h1>글쓰기</h1>
     <textarea id="{{elementId}}"></textarea>
+    <button *ngIf="isNew()" (click)="save()">저장</button>
   `
 })
-export class NoteDetail implements AfterViewInit, OnDestroy {
+export class NoteDetailComponent implements AfterViewInit, OnDestroy {
 
 
   private notes: any[];
   private currentRoutePath: string;
 
   constructor(private router: Router, route: ActivatedRoute, private noteService: NoteService) {
-    let path;
+    let id;
     this.currentRoutePath = router.url;
     route.queryParams.subscribe(params => {
-      path = params.path;
+      debugger;
+      id = params.id;
     });
   }
+
   @Input() elementId: String = 'test';
   @Output() onEditorKeyup = new EventEmitter<any>();
   editor;
@@ -33,6 +36,8 @@ export class NoteDetail implements AfterViewInit, OnDestroy {
       skin_url: 'assets/skins/lightgray',
       setup: editor => {
         this.editor = editor;
+
+        debugger;
         editor.on('keyup', () => {
           const content = editor.getContent();
           this.onEditorKeyup.emit(content);
@@ -45,6 +50,13 @@ export class NoteDetail implements AfterViewInit, OnDestroy {
     tinymce.remove(this.editor);
   }
 
+  isNew() {
+    if (this.currentRoutePath.indexOf('/note/write') > -1) {
+      return true;
+    }
+    return false;
+  }
+
   private getNote() {
     this.noteService.getBundle().subscribe(data => {
       this.notes = data;
@@ -52,6 +64,10 @@ export class NoteDetail implements AfterViewInit, OnDestroy {
   }
 
   private save() {
+    this.noteService.create(this.editor.getContent()).subscribe(data => {
+      console.log(data);
+      this.router.navigate(['note']);
+    });
   }
 
   // private getArticles(path: string) {
