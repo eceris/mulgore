@@ -6,21 +6,22 @@ import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output} from '
   selector: 'app-note',
   template: `
     <h1>글쓰기</h1>
-    <textarea id="{{elementId}}"></textarea>
+    <textarea *ngIf="isNew()" id="{{elementId}}"></textarea>
     <button *ngIf="isNew()" (click)="save()">저장</button>
+    <h2 *ngIf="!isNew()" id="title">{{note?.title}}</h2>
+    <div *ngIf="!isNew()" id="contents">{{note?.content}}</div>
   `
 })
 export class NoteDetailComponent implements AfterViewInit, OnDestroy {
 
-
-  private notes: any[];
   private currentRoutePath: string;
+  private id: string;
+  private note: string;
 
   constructor(private router: Router, route: ActivatedRoute, private noteService: NoteService) {
-    let id;
     this.currentRoutePath = router.url;
     route.queryParams.subscribe(params => {
-      id = params.id;
+      this.id = params.id;
     });
   }
 
@@ -29,23 +30,30 @@ export class NoteDetailComponent implements AfterViewInit, OnDestroy {
   editor;
 
   ngAfterViewInit() {
-    tinymce.init({
-      selector: '#' + this.elementId,
-      plugins: ['link', 'paste', 'table'],
-      skin_url: 'assets/skins/lightgray',
-      setup: editor => {
-        this.editor = editor;
+    console.log("test");
+    if (this.isNew()) {
+      tinymce.init({
+        selector: '#' + this.elementId,
+        plugins: ['link', 'paste', 'table'],
+        skin_url: 'assets/skins/lightgray',
+        setup: editor => {
+          this.editor = editor;
 
-        editor.on('keyup', () => {
-          const content = editor.getContent();
-          this.onEditorKeyup.emit(content);
-        });
-      },
-    });
+          editor.on('keyup', () => {
+            const content = editor.getContent();
+            this.onEditorKeyup.emit(content);
+          });
+        },
+      });
+    } else {
+      this.getNote(this.id);
+    }
   }
 
   ngOnDestroy() {
-    tinymce.remove(this.editor);
+    if (this.isNew()) {
+      tinymce.remove(this.editor);
+    }
   }
 
   isNew() {
@@ -55,9 +63,9 @@ export class NoteDetailComponent implements AfterViewInit, OnDestroy {
     return false;
   }
 
-  private getNote() {
-    this.noteService.getBundle().subscribe(data => {
-      this.notes = data;
+  private getNote(id: string) {
+    this.noteService.get(id).subscribe(data => {
+      this.note = data;
     });
   }
 

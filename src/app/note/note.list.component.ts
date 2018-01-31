@@ -10,7 +10,7 @@ import {NoteService} from './note.service';
       <h1>조도영 짱</h1>
     </div>
     <div *ngFor="let note of notes">
-      <h1 (click)="show(note?.id)">{{note?.title}}</h1>
+      <h3 (click)="show(note?.id)">{{note?.title}}</h3>
     </div>
   `
 })
@@ -38,8 +38,7 @@ export class NoteListComponent {
   }
 
   show(id: string) {
-    console.log(id);
-    this.router.navigate(['note/write'], { queryParams: { 'id': id } });
+    this.router.navigate(['note/'], {queryParams: {'id': id}});
   }
 
 }
