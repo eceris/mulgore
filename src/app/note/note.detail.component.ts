@@ -20,7 +20,6 @@ export class NoteDetailComponent implements AfterViewInit, OnDestroy {
     let id;
     this.currentRoutePath = router.url;
     route.queryParams.subscribe(params => {
-      debugger;
       id = params.id;
     });
   }
@@ -37,7 +36,6 @@ export class NoteDetailComponent implements AfterViewInit, OnDestroy {
       setup: editor => {
         this.editor = editor;
 
-        debugger;
         editor.on('keyup', () => {
           const content = editor.getContent();
           this.onEditorKeyup.emit(content);

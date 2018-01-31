@@ -36,7 +36,7 @@ import {NoteServiceMock} from './note/note.service.mock';
   }, {
     provide: NoteService,
     useFactory(http: HttpClient) {
-      return isDevMode() ? new NoteServiceMock(http) : new NoteService(http);
+      return /*isDevMode() ? new NoteServiceMock(http) : */new NoteService(http);
     },
     deps: [HttpClient]
   }
