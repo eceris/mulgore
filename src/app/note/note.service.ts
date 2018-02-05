@@ -19,9 +19,9 @@ export class NoteService {
     return this.http.get<any[]>(this.api + '/api/note');
   }
 
-  create(path: string): Observable<any[]> {
-    let params = new HttpParams().set('path', path);
-    return this.http.post<any[]>(this.api + '/api/note', {params: params});
+  create(title: string, content: string): Observable<any> {
+    let params = new HttpParams().set('content', content);
+    return this.http.post<any>(this.api + '/api/note', {'content': content, 'title' : title});
   }
 
   update(path: string): Observable<any[]> {

@@ -16,14 +16,8 @@ import {NoteService} from './note.service';
 })
 export class NoteListComponent {
   notes: any[];
-  currentRoutePath: string;
 
   constructor(private router: Router, route: ActivatedRoute, private noteService: NoteService) {
-    let path;
-    this.currentRoutePath = router.url;
-    route.queryParams.subscribe(params => {
-      path = params.path;
-    });
     this.getNotes();
   }
 

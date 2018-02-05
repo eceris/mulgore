@@ -5,11 +5,12 @@ import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output} from '
 @Component({
   selector: 'app-note',
   template: `
-    <h1>글쓰기</h1>
+    <h1>제목</h1>
+    <input *ngIf="isNew()"type="text" id="title" value="{{this.title}}">
     <textarea *ngIf="isNew()" id="{{elementId}}"></textarea>
     <button *ngIf="isNew()" (click)="save()">저장</button>
     <h2 *ngIf="!isNew()" id="title">{{note?.title}}</h2>
-    <div *ngIf="!isNew()" id="contents">{{note?.content}}</div>
+    <div *ngIf="!isNew()" id="contents" [innerHTML]="note?.content"></div>
   `
 })
 export class NoteDetailComponent implements AfterViewInit, OnDestroy {
@@ -17,7 +18,7 @@ export class NoteDetailComponent implements AfterViewInit, OnDestroy {
   private currentRoutePath: string;
   private id: string;
   private note: string;
-
+  private title: string;
   constructor(private router: Router, route: ActivatedRoute, private noteService: NoteService) {
     this.currentRoutePath = router.url;
     route.queryParams.subscribe(params => {
@@ -70,9 +71,8 @@ export class NoteDetailComponent implements AfterViewInit, OnDestroy {
   }
 
   private save() {
-    this.noteService.create(this.editor.getContent()).subscribe(data => {
-      console.log(data);
-      this.router.navigate(['note']);
+    this.noteService.create(title.value, this.editor.getContent()).subscribe(data => {
+      this.router.navigate(['notes']);
     });
   }
 
